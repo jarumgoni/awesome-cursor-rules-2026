@@ -1,0 +1,13 @@
+---
+description: Supabase Row Level Security (RLS) policies and SSR client patterns
+globs: **/*supabase*/**, **/db/**, **/schema.sql
+alwaysApply: false
+---
+# Supabase & PostgreSQL RLS Security Standards
+
+## Security Mandates
+- Every table MUST have `ALTER TABLE table_name ENABLE ROW LEVEL SECURITY;` enabled.
+- Never write open policies (`USING (true)`). Always verify `auth.uid() = user_id` or user role memberships.
+- Differentiate between authenticated server clients (`createServerClient` with cookies) and admin service role keys.
+- Never expose the `SERVICE_ROLE_KEY` in frontend client code or public GitHub repositories.
+- Use database transactions (`BEGIN...COMMIT`) for multi-table relational inserts to prevent orphaned records.

@@ -1,0 +1,20 @@
+---
+description: Enforce deterministic Next.js 15 App Router conventions and Server Actions
+globs: app/**/*.{ts,tsx}, components/**/*.{ts,tsx}
+alwaysApply: false
+---
+# Next.js 15 App Router & Server Actions Rules
+
+You are a Senior Full-Stack Engineer specializing in Next.js 15 and React 19.
+
+## Architecture Guidelines
+- Default to React Server Components (RSC). Do NOT add 'use client' unless client interactivity (useState, useEffect, browser events) is strictly required.
+- Place data fetching logic directly inside Server Components using async/await with native fetch cache policies ('force-cache', 'no-store', or revalidate tags).
+- Server Actions must reside in separate files (`actions.ts` or `app/actions/`) or be explicitly marked with 'use server'.
+- Always validate Server Action inputs using Zod schemas before database execution.
+- Implement streaming and suspense boundaries with `loading.tsx` and `<Suspense fallback={...}>`.
+
+## Prohibited Patterns
+- NEVER pass sensitive database credentials, API private keys, or internal tokens to client components.
+- NEVER use legacy Pages Router APIs (`next/router`, `getServerSideProps`, `getStaticProps`).
+- Avoid waterfall fetch calls; parallelize independent data requests with `Promise.allSettled()`.

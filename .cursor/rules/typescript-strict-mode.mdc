@@ -1,0 +1,13 @@
+---
+description: Zero-tolerance strict TypeScript standards and type narrowing patterns
+globs: **/*.{ts,tsx}
+alwaysApply: true
+---
+# TypeScript 5.5+ Strict Mode Rules
+
+## Strictness Principles
+- Prohibit the use of `any`. Always use `unknown` with type-guards, discriminated unions, or Zod schemas.
+- Use explicit return types on all exported module functions and API handlers.
+- Prefer `interface` for public object contracts and `type` for unions, intersections, and mapped primitives.
+- Enforce immutability using `readonly` modifiers on arrays and critical domain models.
+- Avoid non-null assertion operators (`!`). Use explicit nullish checks (`if (!data) throw ...`) or optional chaining.

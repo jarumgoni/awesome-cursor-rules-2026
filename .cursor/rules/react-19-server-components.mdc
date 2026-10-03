@@ -1,0 +1,12 @@
+---
+description: Strict guidelines for React 19 Actions, useActionState, useOptimistic, and Server Functions
+globs: **/*.{tsx,jsx}
+alwaysApply: false
+---
+# React 19 Modern Architecture Rules
+
+## Core Standards
+- Use the modern React 19 hooks (`useActionState`, `useOptimistic`, `useFormStatus`, `use()`) instead of manual loading and error state management.
+- Prefer passing Promises to `<Suspense>` boundaries using `use(promise)` inside Server-Rendered children.
+- Never wrap components in `memo()` or `useCallback()` unless profiling proves performance bottlenecks; React 19 Compiler handles automatic memoization.
+- For optimistic UI updates, always provide a clean rollback mechanism when action execution fails.

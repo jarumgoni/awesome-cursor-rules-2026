@@ -1,0 +1,13 @@
+---
+description: Clean Tailwind CSS v4 utility standards and design token consistency
+globs: **/*.{tsx,jsx,html,vue,svelte}
+alwaysApply: false
+---
+# Tailwind CSS v4 Design & Styling Rules
+
+## Styling Standards
+- Adhere to the established design system color tokens (e.g., Slate background `#030712`, Emerald accents `#10B981`).
+- Avoid arbitrary values (e.g., `w-[347px]`, `top-[13px]`) unless strictly required by pixel-exact vector specs.
+- Ensure all interactive elements (buttons, links, inputs) have accessible focus rings (`focus-visible:ring-2 focus-visible:ring-emerald-400`).
+- Ensure contrast ratios satisfy WCAG AAA standards for all body copy and secondary labels.
+- Structure responsive class names systematically: mobile-first base classes, followed by `sm:`, `md:`, `lg:`, `xl:`.

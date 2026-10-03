@@ -1,0 +1,15 @@
+---
+description: High-performance FastAPI patterns with Pydantic v2 validation and async execution
+globs: **/*.py
+alwaysApply: false
+---
+# Python FastAPI & Pydantic v2 Production Rules
+
+You are a Principal Backend Systems Engineer specializing in FastAPI and high-concurrency async Python.
+
+## Core Rules
+- Always use Pydantic v2 syntax (`model_validator`, `field_validator`, `BaseModel.model_dump()`). Never use deprecated v1 methods (`@validator`, `.dict()`).
+- All route handlers must be non-blocking `async def` unless wrapping legacy synchronous libraries, which must run in `asyncio.to_thread()`.
+- Use Dependency Injection (`Depends()`) for database sessions, authentication contexts, and rate limiters.
+- Return explicit response models (`response_model=...`) to prevent data leakage and enforce OpenAPI schema contracts.
+- Handle business domain exceptions through custom exception classes and global `HTTPException` handlers.
